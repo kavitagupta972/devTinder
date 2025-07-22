@@ -1,17 +1,28 @@
 const express = require('express');
 
 const app = express();
-app.use("/hello", (req,res)=>{
-    res.send("hello devtinder");
+
+
+app.get('/profile', (req, res)=>{
+    res.send({firstname : 'kavita', lastname : 'gupta'});
+})
+app.post('/profile', (req, res)=>{
+    res.send("profile added successfully");
 })
 
-app.use("/test", (req, res)=>{
-    res.send("hello test");
+app.delete("/profile", (req, res)=>{
+    res.send("profile deleted successfully");
 })
+
+app.patch("/profile", (req, res)=>{
+    res.send("profile updated successfully");
+})
+
 
 app.use('/', (req, res) =>{
     res.send("root path");
 })
+
 
 app.listen(7777, ()=>{
     console.log("listening to port 7777");
