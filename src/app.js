@@ -4,8 +4,15 @@ const app = express();
 
 
 app.get('/profile', (req, res)=>{
+    console.log(req.query);
     res.send({firstname : 'kavita', lastname : 'gupta'});
 })
+
+app.get('/profile/:profileId', (req, res)=>{
+    console.log(req.params);
+    res.send({firstname : 'kavita', lastname : 'gupta'});
+})
+
 app.post('/profile', (req, res)=>{
     res.send("profile added successfully");
 })

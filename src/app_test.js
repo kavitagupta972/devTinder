@@ -2,7 +2,19 @@ const express = require('express');
 
 const app = express();
 
+// app.get(/p/, (req, res)=>{
+//     console.log('req query', req.query);
+//     res.send({firstname : 'kavita', lastname : 'gupta'});
+// })
 
+app.get(/.*fly$/, (req, res)=>{
+    res.send({firstname : 'kavita', lastname : 'gupta'});
+});
+
+app.get('/profile/:profileId', (req, res)=>{
+    console.log('req params' , req.params);
+    res.send({firstname : 'kavita', lastname : 'gupta'});
+})
 app.use("/hello/2", (req,res)=>{
     res.send("hello devtinder 2222");
 })
